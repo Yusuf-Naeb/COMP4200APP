@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">My_His</string>
+=======
+    <string name="app_name">COMP4200Group</string>
+>>>>>>> 82664822208c0fb333ca62277908cb3b9619d9fc
 </resources>

@@ -3,11 +3,19 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.my_his"
     compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.my_his"
+=======
+    namespace = "com.example.comp4200group"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.comp4200group"
+>>>>>>> 82664822208c0fb333ca62277908cb3b9619d9fc
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -19,7 +27,14 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+<<<<<<< HEAD
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+=======
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+>>>>>>> 82664822208c0fb333ca62277908cb3b9619d9fc
         }
     }
     compileOptions {

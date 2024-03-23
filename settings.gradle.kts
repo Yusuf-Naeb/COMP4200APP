@@ -13,6 +13,10 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 rootProject.name = "My_His"
+=======
+rootProject.name = "COMP4200Group"
+>>>>>>> 82664822208c0fb333ca62277908cb3b9619d9fc
 include(":app")
  

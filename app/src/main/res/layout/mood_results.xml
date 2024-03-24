@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="416dp"
+        android:layout_height="735dp"
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/returntext"
+            android:layout_width="401dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Check past dates"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="602dp" />
+
+        <Button
+            android:id="@+id/pastbutton"
+            android:layout_width="211dp"
+            android:layout_height="63dp"
+            android:text="History"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="642dp" />
+
+        <TextView
+            android:id="@+id/returntext"
+            android:layout_width="401dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Enter a second mood?"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="489dp" />
+
+        <TextView
+            android:id="@+id/returntext"
+            android:layout_width="401dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Return to main menu"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="376dp" />
+
+        <Button
+            android:id="@+id/menubutton"
+            android:layout_width="211dp"
+            android:layout_height="63dp"
+            android:text="Go Back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="416dp" />
+
+        <Button
+            android:id="@+id/mood2button"
+            android:layout_width="211dp"
+            android:layout_height="63dp"
+            android:text="Enter Another"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="529dp" />
+
+        <TextView
+            android:id="@+id/moodtitle"
+            android:layout_width="401dp"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:text="Your Mood of the Day"
+            android:textSize="38dp"
+            app:layout_constraintBottom_toTopOf="@+id/moodimg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/moodimg"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@android:drawable/alert_light_frame"
+            tools:layout_editor_absoluteY="93dp" />
+
+        <TextView
+            android:id="@+id/mooddate"
+            android:layout_width="401dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="On (Date)"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moodimg" />
+
+        <Button
+            android:id="@+id/switchbutton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Switch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mooddate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

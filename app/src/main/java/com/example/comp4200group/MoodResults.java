@@ -2,6 +2,7 @@ package com.example.comp4200group;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Objects;
 
 public class MoodResults extends AppCompatActivity {
@@ -19,7 +23,7 @@ public class MoodResults extends AppCompatActivity {
     private Button exitbtn, redobtn, switchbtn;
     private TextView datetext, titletext;
     private ImageView moodimage;
-    private int userMood, hCount, oCount, sCount;
+    private int userMood, aveMood, hCount, oCount, sCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class MoodResults extends AppCompatActivity {
         titletext = findViewById(R.id.moodtitle);
         moodimage = findViewById(R.id.moodimg);
 
+        // Display time
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        datetext.setText(dateFormat.format(Calendar.getInstance().getTime()));
         // Get results from MoodInput
         Intent intent = getIntent();
         userMood = intent.getIntExtra("mood", 1);
@@ -51,17 +58,13 @@ public class MoodResults extends AppCompatActivity {
                 case "sad":
                     sCount++;
             }
-            switch (SavedMood.getMood2()) {
-                case "happy":
-                    hCount++;
-                case "okay":
-                    oCount++;
-                case "sad":
-                    sCount++;
-            }
         }
-        if (hCount >= oCount) {
-
+        if (hCount >= oCount && hCount >= sCount) {
+            aveMood =  R.drawable.happy;
+        } else if (oCount >= hCount && oCount >= sCount) {
+            aveMood = R.drawable.okay;
+        } else {
+            aveMood = R.drawable.sad;
         }
 
         switchbtn.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +73,7 @@ public class MoodResults extends AppCompatActivity {
                 if (datetext.isEnabled()) {
                     datetext.setVisibility(View.INVISIBLE);
                     titletext.setText("Your Average Mood");
+                    moodimage.setImageResource(aveMood);
                 }
                 else {
                     datetext.setVisibility(View.VISIBLE);
@@ -89,8 +93,10 @@ public class MoodResults extends AppCompatActivity {
         redobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // This will check if the second. Just put true for now since not sure how the database works fully
-
+                //Intent intent = new Intent(MoodResults.this, MoodInput.class);
+                //intent.putExtra("change mood", true);
+                //startActivity(intent);
+                // Goes back to MoodInput and allows user to change mood they just put in
             }
         });
     }

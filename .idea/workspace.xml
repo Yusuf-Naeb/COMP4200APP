@@ -26,11 +26,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088d1b0f-102c-472c-a0e2-f813234b6265" name="Changes" comment="Merged everything">
+    <list default="true" id="088d1b0f-102c-472c-a0e2-f813234b6265" name="Changes" comment="Functionality added to MoodResults.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MoodInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MoodInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MoodResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MoodResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/mood_results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/mood_results.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,13 +186,22 @@
       <option name="project" value="LOCAL" />
       <updated>1711473920950</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Functionality added to MoodResults.java">
+      <option name="closed" value="true" />
+      <created>1711485297008</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711485297008</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added basic Results page information" />
     <MESSAGE value="Mood input page works. Submit button sends you to the results page. Just need to get the info to the db. Emoji faces will change" />
     <MESSAGE value="Merged everything" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged everything" />
+    <MESSAGE value="Functionality added to MoodResults.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functionality added to MoodResults.java" />
   </component>
 </project>

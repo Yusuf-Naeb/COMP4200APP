@@ -18,6 +18,7 @@ public class MoodInput extends AppCompatActivity {
     private TextView dateText;
     private ImageButton selectedImageButton;
     private Button submitBtn;
+    private boolean changeMood;
     private int imgDraw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,11 @@ public class MoodInput extends AppCompatActivity {
         dateText = findViewById(R.id.currentDate);
         submitBtn = findViewById(R.id.submitButton);
         dbhandler = new Database_Func(MoodInput.this);
+
+        // User decides to edit mood
+        // Intent changeIntent = getIntent();
+        //changeMood = changeIntent.getBooleanExtra("change mood", false);
+
         //Current Date
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);

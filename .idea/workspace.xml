@@ -26,15 +26,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088d1b0f-102c-472c-a0e2-f813234b6265" name="Changes" comment="Mood input page works. Submit button sends you to the results page. Just need to get the info to the db. Emoji faces will change">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="088d1b0f-102c-472c-a0e2-f813234b6265" name="Changes" comment="Changed Emojis to pngs, added mood db to mood input + intent to pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MoodInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/comp4200group/MoodInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/happy.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/happy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/okay.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/okay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/sad.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,12 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1711326192082</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Changed Emojis to pngs, added mood db to mood input + intent to pages">
+      <option name="closed" value="true" />
+      <created>1711471025095</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711471025095</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added basic Results page information" />
     <MESSAGE value="Mood input page works. Submit button sends you to the results page. Just need to get the info to the db. Emoji faces will change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mood input page works. Submit button sends you to the results page. Just need to get the info to the db. Emoji faces will change" />
+    <MESSAGE value="Changed Emojis to pngs, added mood db to mood input + intent to pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Emojis to pngs, added mood db to mood input + intent to pages" />
   </component>
 </project>

@@ -34,6 +34,7 @@ public class MoodInput extends AppCompatActivity {
         String currentDate = String.format("%04d-%02d-%02d", year, month, day);
         dateText.setText(currentDate);
 
+        //submit button, once pressed adds mood to db, and goes to result page
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

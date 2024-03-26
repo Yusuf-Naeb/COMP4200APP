@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +18,7 @@ public class MoodInput extends AppCompatActivity {
     private TextView dateText;
     private ImageButton selectedImageButton;
     private Button submitBtn;
+    private int imgDraw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,7 @@ public class MoodInput extends AppCompatActivity {
               String selectedMood = getMoodFromImageId(selectedImageId);
               addMoodToDatabase(selectedMood);
               Intent intent = new Intent(MoodInput.this, MoodResults.class);
+              intent.putExtra("mood", imgDraw);
               startActivity(intent);
             }
         });
@@ -50,11 +51,14 @@ public class MoodInput extends AppCompatActivity {
     private String getMoodFromImageId(int imageId){
         String mood;
         if (imageId == R.id.happyButton) {
-            mood = "Happy";
+            mood = "happy";
+            imgDraw = R.drawable.happy;
         } else if (imageId == R.id.sadButton) {
-            mood = "Sad";
+            mood = "sad";
+            imgDraw = R.drawable.sad;
         } else if (imageId == R.id.okayButton) {
-            mood = "Sad";
+            mood = "okay";
+            imgDraw = R.drawable.okay;
         }else{
             mood = null;
         }

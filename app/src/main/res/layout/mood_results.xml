@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Enter a second mood?"
+            android:text="Edit mood?"
             android:textSize="25dp"
             app:layout_constraintBottom_toTopOf="@+id/historytext"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Return to main menu"
+            android:text="Close the app"
             android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,19 +61,19 @@
             app:layout_constraintTop_toBottomOf="@+id/historytext" />
 
         <Button
-            android:id="@+id/menubutton"
+            android:id="@+id/exitbutton"
             android:layout_width="211dp"
             android:layout_height="63dp"
-            android:text="Go Back"
+            android:text="Exit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/returntext" />
 
         <Button
-            android:id="@+id/mood2button"
+            android:id="@+id/redobutton"
             android:layout_width="211dp"
             android:layout_height="63dp"
-            android:text="Enter Another"
+            android:text="Re-Enter Mood"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/secondtext" />

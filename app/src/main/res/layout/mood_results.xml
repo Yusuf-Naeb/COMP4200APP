@@ -22,19 +22,19 @@
             android:gravity="center"
             android:text="Check past dates"
             android:textSize="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/returntext"
+            app:layout_constraintBottom_toTopOf="@+id/pastbutton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/secondtext" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/pastbutton"
             android:layout_width="211dp"
             android:layout_height="63dp"
             android:text="History"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/historytext" />
+            app:layout_constraintTop_toBottomOf="@+id/redobutton" />
 
         <TextView
             android:id="@+id/secondtext"
@@ -43,40 +43,19 @@
             android:gravity="center"
             android:text="Edit mood?"
             android:textSize="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/historytext"
+            app:layout_constraintBottom_toTopOf="@+id/redobutton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switchbutton" />
-
-        <TextView
-            android:id="@+id/returntext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Close the app"
-            android:textSize="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/historytext" />
-
-        <Button
-            android:id="@+id/exitbutton"
-            android:layout_width="211dp"
-            android:layout_height="63dp"
-            android:text="Exit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/returntext" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/redobutton"
             android:layout_width="211dp"
             android:layout_height="63dp"
             android:text="Re-Enter Mood"
+            app:layout_constraintBottom_toTopOf="@+id/pastbutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/secondtext" />
+            app:layout_constraintTop_toBottomOf="@+id/switchbutton" />
 
         <TextView
             android:id="@+id/moodtitle"

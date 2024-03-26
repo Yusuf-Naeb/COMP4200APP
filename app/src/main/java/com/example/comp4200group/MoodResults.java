@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class MoodResults extends AppCompatActivity {
     private Database_Func dbhandler;
-    private Button exitbtn, redobtn, switchbtn;
+    private Button redobtn, switchbtn;
     private TextView datetext, titletext;
     private ImageView moodimage;
     private int userMood, aveMood, hCount, oCount, sCount;
@@ -31,7 +31,6 @@ public class MoodResults extends AppCompatActivity {
         setContentView(R.layout.mood_results);
         dbhandler = new Database_Func(MoodResults.this);
         hCount = oCount = sCount = 0;
-        exitbtn = findViewById(R.id.exitbutton);
         redobtn = findViewById(R.id.redobutton);
         switchbtn = findViewById(R.id.switchbutton);
 
@@ -41,7 +40,7 @@ public class MoodResults extends AppCompatActivity {
 
         // Display time
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        datetext.setText(dateFormat.format(Calendar.getInstance().getTime()));
+        datetext.setText("On " + dateFormat.format(Calendar.getInstance().getTime()));
         // Get results from MoodInput
         Intent intent = getIntent();
         userMood = intent.getIntExtra("mood", 1);
@@ -59,6 +58,7 @@ public class MoodResults extends AppCompatActivity {
                     sCount++;
             }
         }
+
         if (hCount >= oCount && hCount >= sCount) {
             aveMood =  R.drawable.happy;
         } else if (oCount >= hCount && oCount >= sCount) {
@@ -70,7 +70,7 @@ public class MoodResults extends AppCompatActivity {
         switchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (datetext.isEnabled()) {
+                if (datetext.getVisibility() == View.VISIBLE) {
                     datetext.setVisibility(View.INVISIBLE);
                     titletext.setText("Your Average Mood");
                     moodimage.setImageResource(aveMood);
@@ -82,20 +82,13 @@ public class MoodResults extends AppCompatActivity {
                 }
             }
         });
-        exitbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                System.exit(0);
-            }
-        });
 
         redobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MoodResults.this, MoodInput.class);
-                //intent.putExtra("change mood", true);
-                //startActivity(intent);
+                Intent intent = new Intent(MoodResults.this, MoodInput.class);
+                intent.putExtra("change mood", true);
+                startActivity(intent);
                 // Goes back to MoodInput and allows user to change mood they just put in
             }
         });

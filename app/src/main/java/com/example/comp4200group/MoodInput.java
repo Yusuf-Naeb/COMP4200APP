@@ -25,7 +25,7 @@ public class MoodInput extends AppCompatActivity {
         setContentView(R.layout.mood_input);
         dateText = findViewById(R.id.currentDate);
         submitBtn = findViewById(R.id.submitButton);
-
+        dbhandler = new Database_Func(MoodInput.this);
         //Current Date
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -37,18 +37,33 @@ public class MoodInput extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              if(selectedImageButton != null){
-                  int selectedImageId = selectedImageButton.getId();
-                  Intent intent = new Intent(MoodInput.this, MoodResults.class);
-                  startActivity(intent);
-              }
+              int selectedImageId = selectedImageButton.getId();
+              String selectedMood = getMoodFromImageId(selectedImageId);
+              addMoodToDatabase(selectedMood);
+              Intent intent = new Intent(MoodInput.this, MoodResults.class);
+              startActivity(intent);
             }
         });
 
     }
 
+    private String getMoodFromImageId(int imageId){
+        String mood;
+        if (imageId == R.id.happyButton) {
+            mood = "Happy";
+        } else if (imageId == R.id.sadButton) {
+            mood = "Sad";
+        } else if (imageId == R.id.okayButton) {
+            mood = "Sad";
+        }else{
+            mood = null;
+        }
+        return mood;
+    }
 
-
+    private void addMoodToDatabase(String mood){
+        dbhandler.addMood(mood,null, 1);
+    }
 
     public void onImageButtonClicked(View v){
         ImageButton clickedButton = (ImageButton) v;

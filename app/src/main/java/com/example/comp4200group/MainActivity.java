@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
                 //retrieve text from the editText
                 String username = usernameET.getText().toString();
                 String password = passwordET.getText().toString();
+                Intent intent = new Intent(MainActivity.this, MoodInput.class);
+                startActivity(intent);
                 //Some sort of authenticator methoD
 
             }

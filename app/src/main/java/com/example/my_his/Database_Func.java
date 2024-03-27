@@ -1,5 +1,4 @@
-package com.example.my_his;
-
+package com.example.comp4200group;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -65,6 +64,37 @@ public class Database_Func extends SQLiteOpenHelper{
 
         db.close();
     }
+
+    public boolean checkLogin(String username, String password) {
+
+        if (username.isEmpty() || password.isEmpty()) {
+            return false;
+        }
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + Table_USER + " WHERE " +
+                COLUMN_NAME_USERNAME + " = ? AND " + COLUMN_NAME_PASSWORD + " = ?";
+        String[] selectionArgs = {username, password};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        boolean success = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return success;
+    }
+
+    public boolean exists(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + Table_USER + " WHERE " +
+                COLUMN_NAME_USERNAME + " = ?";
+        String[] selectionArgs = {username};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return exists;
+    }
+
+
 
     public void editUser(String Uname, String pass, int id, String nme){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -143,29 +173,6 @@ public class Database_Func extends SQLiteOpenHelper{
         //sql to get desired data
         String GET_MOOD = "SELECT * FROM " + Table_MOOD + " WHERE " +
                 Table_MOOD + "." + COLUMN_NAME_UID + " == " + ID;
-        //create cursor to execute sql
-        Cursor Moodcurs = db.rawQuery(GET_MOOD, null);
-        //create arraylist and insert data
-        ArrayList<Mood_His> Moods = new ArrayList<>();
-        //loop to insert data
-        if(Moodcurs.moveToFirst()){
-            do{
-                Moods.add(new Mood_His(Integer.parseInt(Moodcurs.getString(0)),
-                        Integer.parseInt(Moodcurs.getString(4)),
-                        Moodcurs.getString(1),
-                        Moodcurs.getString(2),
-                        Moodcurs.getString(3)));
-            }while (Moodcurs.moveToNext());
-        }
-        //close cursor and return data
-        Moodcurs.close();
-        return Moods;
-    }
-
-    public ArrayList<Mood_His> getAllMoodHist(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        //sql to get desired data
-        String GET_MOOD = "SELECT * FROM " + Table_MOOD;
         //create cursor to execute sql
         Cursor Moodcurs = db.rawQuery(GET_MOOD, null);
         //create arraylist and insert data

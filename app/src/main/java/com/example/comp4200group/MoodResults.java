@@ -52,10 +52,13 @@ public class MoodResults extends AppCompatActivity {
             switch (SavedMood.getMood()) {
                 case "happy":
                     hCount++;
+                    break;
                 case "okay":
                     oCount++;
+                    break;
                 case "sad":
                     sCount++;
+                    break;
             }
         }
 

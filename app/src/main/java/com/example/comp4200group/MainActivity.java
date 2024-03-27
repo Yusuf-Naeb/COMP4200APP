@@ -37,10 +37,5 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-        dbhandler = new Database_Func(MainActivity.this);
-        dbhandler.addUser("test", "test", "test");
-        dbhandler.addMood("happy", null, 1);
-        //test
     }
 }

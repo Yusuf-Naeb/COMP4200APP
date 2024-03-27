@@ -26,6 +26,8 @@ public class MoodInput extends AppCompatActivity {
         dateText = findViewById(R.id.currentDate);
         submitBtn = findViewById(R.id.submitButton);
         dbhandler = new Database_Func(MoodInput.this);
+        
+
         //Current Date
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -55,7 +57,7 @@ public class MoodInput extends AppCompatActivity {
         } else if (imageId == R.id.sadButton) {
             mood = "Sad";
         } else if (imageId == R.id.okayButton) {
-            mood = "Sad";
+            mood = "Okay";
         }else{
             mood = null;
         }

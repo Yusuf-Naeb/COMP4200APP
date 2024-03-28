@@ -32,7 +32,7 @@ public class MoodInput extends AppCompatActivity {
         // Intent changeIntent = getIntent();
         //changeMood = changeIntent.getBooleanExtra("change mood", false);
 
-        //Current Date
+         //Current Date
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;

@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class MoodResults extends AppCompatActivity {
     private Database_Func dbhandler;
-    private Button redobtn, switchbtn;
+    private Button redobtn, switchbtn, historybtn;
     private TextView datetext, titletext;
     private ImageView moodimage;
     private int userMood, aveMood, hCount, oCount, sCount;
@@ -33,13 +33,14 @@ public class MoodResults extends AppCompatActivity {
         hCount = oCount = sCount = 0;
         redobtn = findViewById(R.id.redobutton);
         switchbtn = findViewById(R.id.switchbutton);
+        historybtn = findViewById(R.id.pastbutton);
 
         datetext = findViewById(R.id.mooddate);
         titletext = findViewById(R.id.moodtitle);
         moodimage = findViewById(R.id.moodimg);
 
         // Display time
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         datetext.setText("On " + dateFormat.format(Calendar.getInstance().getTime()));
         // Get results from MoodInput
         Intent intent = getIntent();
@@ -50,13 +51,13 @@ public class MoodResults extends AppCompatActivity {
         ArrayList<Mood_His> UserMoods = dbhandler.getMoodHist(1);
         for (Mood_His SavedMood : UserMoods) {
             switch (SavedMood.getMood()) {
-                case "happy":
+                case "Happy":
                     hCount++;
                     break;
-                case "okay":
+                case "Okay":
                     oCount++;
                     break;
-                case "sad":
+                case "Sad":
                     sCount++;
                     break;
             }
@@ -93,6 +94,14 @@ public class MoodResults extends AppCompatActivity {
                 intent.putExtra("change mood", true);
                 startActivity(intent);
                 // Goes back to MoodInput and allows user to change mood they just put in
+            }
+        });
+
+        historybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MoodResults.this, History.class);
+                startActivity(intent);
             }
         });
     }

@@ -57,13 +57,13 @@ public class MoodInput extends AppCompatActivity {
     private String getMoodFromImageId(int imageId){
         String mood;
         if (imageId == R.id.happyButton) {
-            mood = "happy";
+            mood = "Happy";
             imgDraw = R.drawable.happy;
         } else if (imageId == R.id.sadButton) {
-            mood = "sad";
+            mood = "Sad";
             imgDraw = R.drawable.sad;
         } else if (imageId == R.id.okayButton) {
-            mood = "okay";
+            mood = "Okay";
             imgDraw = R.drawable.okay;
         }else{
             mood = null;

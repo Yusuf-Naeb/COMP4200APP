@@ -55,7 +55,7 @@ public class Database_Func extends SQLiteOpenHelper{
         ContentValues values = new ContentValues();
         //insert values into contentvalues
         values.put(COLUMN_NAME_USERNAME, Uname);
-        values.put(COLUMN_NAME_PASSWORD, nme);
+        values.put(COLUMN_NAME_PASSWORD, pass);
         if ( nme != null){
             values.put(COLUMN_NAME_NAME, nme);
         }
@@ -102,7 +102,7 @@ public class Database_Func extends SQLiteOpenHelper{
         ContentValues values = new ContentValues();
         //insert values into contentvalues
         values.put(COLUMN_NAME_USERNAME, Uname);
-        values.put(COLUMN_NAME_PASSWORD, nme);
+        values.put(COLUMN_NAME_PASSWORD, pass);
         if ( nme != null){
             values.put(COLUMN_NAME_NAME, nme);
         }

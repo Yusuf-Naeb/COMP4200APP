@@ -41,37 +41,28 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         else if(data.getMood().equals("Sad")) {
             holder.cardView.setBackgroundResource(R.color.blue);
         }
-        else if(data.getMood().equals("Angry")) {
-            holder.cardView.setBackgroundResource(R.color.red);
-        }
-        else if(data.getMood().equals("Anxious")) {
-            holder.cardView.setBackgroundResource(R.color.gray);
-        }
-        else if(data.getMood().equals("Balance")) {
+//        else if(data.getMood().equals("Angry")) {
+//            holder.cardView.setBackgroundResource(R.color.red);
+//        }
+//        else if(data.getMood().equals("Anxious")) {
+//            holder.cardView.setBackgroundResource(R.color.gray);
+//        }
+        else if(data.getMood().equals("Okay")) {
             holder.cardView.setBackgroundResource(R.color.green);
         }
-        else if(data.getMood().equals("Love")) {
-            holder.cardView.setBackgroundResource(R.color.pink);
-        }
-        else if(data.getMood().equals("Overworked")) {
-            holder.cardView.setBackgroundResource(R.color.black);
+//        else if(data.getMood().equals("Love")) {
+//            holder.cardView.setBackgroundResource(R.color.pink);
+//        }
+//        else if(data.getMood().equals("Overworked")) {
+//            holder.cardView.setBackgroundResource(R.color.black);
 //            holder.tv_date.setTextColor(Color.WHITE);
 //            holder.tv_date_mood.setTextColor(Color.WHITE);
 //            holder.tv_your_mood.setTextColor(Color.WHITE);
-        }
+//        }
 
         holder.tv_date.setText("Date: " + data.getDate());
-        holder.tv_date_mood.setText("Date mood: " + data.getMood());
-        holder.tv_your_mood.setText("Your mood: " + data.getMood2());
-
-//        holder.btn_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, Registration.class);        //should replace with the main activity or smt
-//                context.startActivity(intent);
-//            }
-//        });
-
+        holder.tv_date_mood.setText("Your mood: " + data.getMood());
+//        holder.tv_your_mood.setText("Your mood: " + data.getMood2());
 
     }
 
@@ -83,17 +74,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public class HistoryViewHolder extends RecyclerView.ViewHolder{
         TextView tv_date, tv_date_mood, tv_your_mood;
         CardView cardView;
-        Button btn_back;
 
         public HistoryViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.card_view);
             tv_date = itemView.findViewById(R.id.textView_date);
             tv_date_mood = itemView.findViewById(R.id.textView_date_mood);
-            tv_your_mood = itemView.findViewById(R.id.textView_your_mood);
-            btn_back = itemView.findViewById(R.id.button_back);
-
-            //btn_back = itemView.findViewById(R.id.button);
+//            tv_your_mood = itemView.findViewById(R.id.textView_your_mood);
         }
     }
 

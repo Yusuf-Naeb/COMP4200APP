@@ -65,6 +65,37 @@ public class Database_Func extends SQLiteOpenHelper{
         db.close();
     }
 
+    public boolean checkLogin(String username, String password) {
+
+        if (username.isEmpty() || password.isEmpty()) {
+            return false;
+        }
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + Table_USER + " WHERE " +
+                COLUMN_NAME_USERNAME + " = ? AND " + COLUMN_NAME_PASSWORD + " = ?";
+        String[] selectionArgs = {username, password};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        boolean success = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return success;
+    }
+
+    public boolean exists(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + Table_USER + " WHERE " +
+                COLUMN_NAME_USERNAME + " = ?";
+        String[] selectionArgs = {username};
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return exists;
+    }
+
+
+
     public void editUser(String Uname, String pass, int id, String nme){
         SQLiteDatabase db = this.getWritableDatabase();
         //create contentvalues object

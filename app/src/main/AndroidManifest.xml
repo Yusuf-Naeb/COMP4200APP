@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".MoodInput"/>
         <activity android:name=".MoodResults"/>
+        <activity android:name=".Registration"></activity>
     </application>
 
 </manifest>

@@ -29,8 +29,8 @@ public class MoodInput extends AppCompatActivity {
         dbhandler = new Database_Func(MoodInput.this);
 
         // User decides to edit mood
-        // Intent changeIntent = getIntent();
-        //changeMood = changeIntent.getBooleanExtra("change mood", false);
+         Intent changeIntent = getIntent();
+        changeMood = changeIntent.getBooleanExtra("change mood", false);
 
          //Current Date
         Calendar calendar = Calendar.getInstance();
@@ -45,7 +45,12 @@ public class MoodInput extends AppCompatActivity {
             public void onClick(View v) {
               int selectedImageId = selectedImageButton.getId();
               String selectedMood = getMoodFromImageId(selectedImageId);
-              addMoodToDatabase(selectedMood);
+              if (!changeMood){
+                  addMoodToDatabase(selectedMood);
+              }
+              else {
+                  changeMoodInDatabase(selectedMood);
+              }
               Intent intent = new Intent(MoodInput.this, MoodResults.class);
               intent.putExtra("mood", imgDraw);
               startActivity(intent);
@@ -72,9 +77,12 @@ public class MoodInput extends AppCompatActivity {
     }
 
     private void addMoodToDatabase(String mood){
-        dbhandler.addMood(mood,null, 1);
+        dbhandler.addMood(mood,null, MainActivity.userInfo.getUserID());
     }
 
+    private void changeMoodInDatabase(String mood){
+        dbhandler.editMood(mood, null, -1);
+    }
     public void onImageButtonClicked(View v){
         ImageButton clickedButton = (ImageButton) v;
 

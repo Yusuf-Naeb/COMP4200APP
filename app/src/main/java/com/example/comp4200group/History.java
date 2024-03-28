@@ -2,6 +2,7 @@ package com.example.comp4200group;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -27,7 +28,7 @@ public class History extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         dbhandler = new Database_Func(History.this);
 
-        dataSets = dbhandler.getMoodHist(1);
+        dataSets = dbhandler.getMoodHist(MainActivity.userInfo.getUserID());
 
         //For testing, only need to test with database
 //        dataSets.add(new Mood_His(2,2, "Happy", "Sad", "2024-03-22"));

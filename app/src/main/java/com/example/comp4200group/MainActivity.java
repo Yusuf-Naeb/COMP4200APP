@@ -3,6 +3,7 @@ package com.example.comp4200group;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
@@ -12,11 +13,10 @@ import android.graphics.Color;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Database_Func dbhandler;
     private EditText usernameET;
     private EditText passwordET;
-
     private TextView errorText;
+    public static User userInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 if (loggedIn) {
                     //login successful
                     //navigate to next activity
+                    userInfo = db.getUser(username, password);
                     Intent intent = new Intent(MainActivity.this, MoodInput.class);
                     startActivity(intent);
                 } else {
@@ -66,54 +67,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
 //        dbhandler = new Database_Func(MainActivity.this);
 //        dbhandler.addUser("test", "test", "test");
 //        dbhandler.addMood("happy", null, 1);
         //test
     }
 }
-
-//import androidx.appcompat.app.AppCompatActivity;
-//import androidx.recyclerview.widget.LinearLayoutManager;
-//import androidx.recyclerview.widget.RecyclerView;
-//
-//import android.os.Bundle;
-//
-//import java.util.ArrayList;
-////This is the main activity for History activity
-//public class MainActivity extends AppCompatActivity {
-//    RecyclerView recyclerView;
-//    Database_Func dbhandler;
-//    ArrayList<Mood_His> dataSets = new ArrayList<>();
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.his_main);
-//        recyclerView = findViewById(R.id.recyclerView);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//        //dbhandler = new Database_Func(MainActivity.this);
-//
-//        //dataSets = dbhandler.getMoodHist(id);
-//
-//        //For testing, only need to test with database
-//        dataSets.add(new Mood_His(2,2, "Happy", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Angry", "Sad", "XXXX-XX-XX"));
-//        dataSets.add(new Mood_His(2,2, "Happy", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(2,2, "Happy", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Sad", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(2,2, "Happy", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Sad", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Anxious", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(2,2, "Happy", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Overworked", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Balance", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Love", "Sad", "2024-03-22"));
-//        dataSets.add(new Mood_His(1,1, "Sad", "Sad", "2024-03-22"));
-//
-//
-//        HistoryAdapter myAdapter = new HistoryAdapter(dataSets, MainActivity.this);
-//        recyclerView.setAdapter(myAdapter);
-//    }
-//}

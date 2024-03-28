@@ -2,8 +2,11 @@ package com.example.comp4200group;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 
 import java.text.SimpleDateFormat;
@@ -38,9 +41,7 @@ public class Database_Func extends SQLiteOpenHelper{
             COLUMN_NAME_DATE + " DATETIME NOT NULL, "
             + COLUMN_NAME_MOOD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT)";
     //constructor for dbhandler
-    public Database_Func(Context context) {
-        super(context, DATABASE_BD, null, DATABASE_VERSION);
-    }
+    public Database_Func(Context context) {super(context, DATABASE_BD, null, DATABASE_VERSION);}
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -61,7 +62,6 @@ public class Database_Func extends SQLiteOpenHelper{
         }
         //insert the data into database
         db.insert(Table_USER, null, values);
-
         db.close();
     }
 
@@ -143,11 +143,14 @@ public class Database_Func extends SQLiteOpenHelper{
             values.put(COLUMN_NAME_MOOD_2, mood2);
         }
         //update the database
+        if (mid == -1){
+            mid = (int) DatabaseUtils.queryNumEntries(db, Table_MOOD);
+        }
         db.update(Table_MOOD, values, COLUMN_NAME_MOOD_ID + " = ?", new String[]{Integer.toString(mid)});
         db.close();
     }
 
-    public ArrayList<User> getUser(String username, String pass){
+    public User getUser(String username, String pass){
         SQLiteDatabase db = this.getReadableDatabase();
         //sql to get desired data
         String GET_USER = "SELECT * FROM "
@@ -158,11 +161,11 @@ public class Database_Func extends SQLiteOpenHelper{
         //create cursor to execute sql
         Cursor CurUser = db.rawQuery(GET_USER, null);
         //create arraylist and insert data
-        ArrayList<User> UserIn = new ArrayList<>();
-        UserIn.add(new User(CurUser.getString(0),
+        CurUser.moveToFirst();
+        User UserIn = new User(CurUser.getString(0),
                 CurUser.getString(1),
                 Integer.parseInt(CurUser.getString(3)),
-                CurUser.getString(2)));
+                CurUser.getString(2));
         //CLOSE CURSOR AND RETURN DATA
         CurUser.close();
         return UserIn;

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -40,6 +41,7 @@ public class MoodResults extends AppCompatActivity {
         moodimage = findViewById(R.id.moodimg);
 
         // Display time
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         datetext.setText("On " + dateFormat.format(Calendar.getInstance().getTime()));
         // Get results from MoodInput
@@ -48,7 +50,7 @@ public class MoodResults extends AppCompatActivity {
         moodimage.setImageResource(userMood);
 
         // Calculate Average and save to reuse (Replace 1 with actual id not sure where it is)
-        ArrayList<Mood_His> UserMoods = dbhandler.getMoodHist(1);
+        ArrayList<Mood_His> UserMoods = dbhandler.getMoodHist(MainActivity.userInfo.getUserID());
         for (Mood_His SavedMood : UserMoods) {
             switch (SavedMood.getMood()) {
                 case "Happy":
